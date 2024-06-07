@@ -17,7 +17,7 @@ There are three main codes in the repository, that have to be launched sequentia
 
 IMPORTANT INFORMATION: 
 
-All files and plots generated are automatically stored, therefore it is MANDATORY to respect the folder structure of the repository
+All files and plots generated are automatically stored, therefore it is MANDATORY to respect the folder structure of the repository shown below:
 
 
 FOLDER STRUCTURE:
@@ -59,10 +59,10 @@ matlab codes
 			----> comparison
 				danger_Lpoints_comparison.m
 				debris_evolution_comparison.m			
- -> 01 orbits
+ -> 01 orbits (This folder needs to be created, as well as the next subfolders)
 	--> orbit_families
 		!!(Store here orbit family data sets)!!
 	--> specific_orbit_families
 		!!(Store here folders with Lyapunov explosions included in url:bbb, i.e., sp_orbit_5_20_L1 and sp_orbit_5_20_L2)!!
 		if generating new explosions, these are saved in this path
- -> 02 plots
+ -> 02 plots (This folder needs to be created)
