@@ -99,8 +99,9 @@ for i = 1:length(files)
 end
 
 % Saving initial conditions based on user selections
-idx = ismember(ceil((1:length(IC_exp))/8),orbs);
+idx = ismember(ceil((1:length(IC_exp))/div),orbs);
 IC_exp = IC_exp(idx,:);
 t0_exp = t0_exp(idx);
+orbit_info_exp = orbit_info(idx);
 
-save(append(sp_dir,'\ICD_',desc,'_',string(length(IC_exp)),'.mat'),'IC_exp','t0_exp','orbit_info'); % ORBIT DATABASE
+save(append(sp_dir,'\ICD_',desc,'_',string(length(IC_exp)),'.mat'),'IC_exp','t0_exp','orbit_info_exp'); % ORBIT DATABASE
