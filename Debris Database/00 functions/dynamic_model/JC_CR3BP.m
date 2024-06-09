@@ -20,7 +20,7 @@
 function JC = JC_CR3BP(State, MU, varargin)
 
 % Check number of input particles
-    if ~isempty(varargin{1})
+    if ~isempty(varargin)
         sz = varargin{1};
         s = State;
     else 
