@@ -44,7 +44,7 @@ for ii = 1:length(Period)
     tf = IC_t*Period(ii);
     tspan = horzcat(zeros(8,1),round(tf,2)');
     s0 = IC(ii,:)';
-    JC(ii) = CR3BP_JC(s0, MU);
+    JC(ii) = JC_CR3BP(s0, MU);
     % Is JC in the range?
     if (JC(ii)>JCmin)*(JC(ii)<JCmax)
         for jj = 1:length(IC_t)
