@@ -19,10 +19,7 @@
 % Copyright 2023 - 2025 David Canales Garcia; All Rights Reserved.
 % *********************************************************************
 
-function createspecificorbitdatabase(fileref,JCmin,JCmax,plotting)
-
-% Number of IC
-div = 8; 
+function createspecificorbitdatabase(fileref,JCmin,JCmax,plotting,div)
 
 % Read in all the possible initial conditions
 load(fileref,'MU','Period','IC');

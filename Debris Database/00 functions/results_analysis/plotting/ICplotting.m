@@ -46,7 +46,7 @@ axis equal;
 hcb=colorbar;
 set(gca,'colororder',cmap,'colormap',cmap)
 set(gcf,'color','w')
-clim([min(JC) max(JC)]);
+clim([min(JC)-0.001 max(JC)+0.001]);
 title(hcb,'JC')
 
 map = [flipud(cool)];

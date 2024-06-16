@@ -66,17 +66,19 @@ sp_dir = append(Specific.path,'\sp_orbit_',date,'_',desc);
 mkdir(sp_dir);
 mkdir(append(sp_dir,'\orbits'));
 
+% Number of explosions per orbit
+div = eval(cell2mat(inputdlg({'Segments'},'Number of explosions per orbit', [1 30], {'8'}))); 
+%div = 8;
+
 % Creation of the orbit database
 for j = 1:length(Families_files)
-    createspecificorbitdatabase(Families_files{j},eval(JClims{1}),eval(JClims{2}),plotting);
+    createspecificorbitdatabase(Families_files{j},eval(JClims{1}),eval(JClims{2}),plotting,div);
 end
 
 % get data about the available orbits
 files = what(append(sp_dir,'\orbits'));
 files = append(files.path,'\',files.mat);
 
-% Number of explosions per orbit
-div = 8;
 
 % Initializing variables
 IC_exp = [];
