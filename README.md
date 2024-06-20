@@ -9,7 +9,7 @@ A detailed explanation of the problem statement can be found on Ref. PAPER.
 
 There are three main codes in the repository, that have to be launched sequentially to complete the proccess:
 
-1. orbitdatabase.m: generate a set of initial conditions with parameters chosen by the user. Pre-computed orbit family data sets are required. It can be found in URL: blablabla).
+1. orbitdatabase.m: generate a set of initial conditions with parameters chosen by the user. Pre-computed orbit family data sets are required. It can be found in URL: https://data.mendeley.com/datasets/9j4hk7k9tb/1.
 
 2. explosiondatabase.m: generate separate .mat containing the data from each propagated explosion.
 

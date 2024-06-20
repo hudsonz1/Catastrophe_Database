@@ -8,7 +8,7 @@ A detailed explanation of the problem statement can be found on Ref. PAPER.
 
 There are three main codes in the repository, that have to be launched sequentially to complete the proccess:
 
-1. orbitdatabase.m: generate a set of initial conditions with parameters chosen by the user. Pre-computed orbit family data sets are required. It can be found in URL: blablabla).
+1. orbitdatabase.m: generate a set of initial conditions with parameters chosen by the user. Pre-computed orbit family data sets are required. It can be found in URL: https://data.mendeley.com/datasets/9j4hk7k9tb/1
 
 2. explosiondatabase.m: generate separate .mat containing the data from each propagated explosion.
 
@@ -63,6 +63,6 @@ matlab codes
 	--> orbit_families
 		!!(Store here orbit family data sets)!!
 	--> specific_orbit_families
-		!!(Store here folders with Lyapunov explosions included in url:bbb, i.e., sp_orbit_5_20_L1 and sp_orbit_5_20_L2)!!
+		!!(Store here folders with Lyapunov explosions included in url: https://datacommons.erau.edu/datasets/x4g4f3t98p/1, i.e., sp_orbit_5_20_L1 and sp_orbit_5_20_L2)!!
 		if generating new explosions, these are saved in this path
  -> 02 plots (This folder needs to be created)
