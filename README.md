@@ -64,8 +64,23 @@ matlab codes
 	--> orbit_families
 		!!(Store here orbit family data sets)!!
 	--> specific_orbit_families
-		!!(Store here folders with Lyapunov explosions included in url:bbb, i.e., sp_orbit_5_20_L1 and sp_orbit_5_20_L2)!!
+		!!(Store here folders with Lyapunov explosions included in url: https://datacommons.erau.edu/datasets/x4g4f3t98p/1, i.e., sp_orbit_5_20_L1 and sp_orbit_5_20_L2)!!
 		if generating new explosions, these are saved in this path
  -> 02 plots
 
+
+
+OTHER EXPLOSIONS DATASET:
+
+Explosions along different family orbits are also simulated and included in the following urls. The datasets structure is the same aforementioned. It is also included a single JSON file that contains all the explosions computed in that family.
+
+Axial_L1: https://data.mendeley.com/datasets/8mwb28h4g6/1
+Axial_L2: https://data.mendeley.com/datasets/4g28tkstj8/1
+Axial_L4L5: https://data.mendeley.com/datasets/nn225wtdfd/1
+Distant_Retrograde_2D: https://data.mendeley.com/datasets/s5y3bwsjz9/1
+Distant_Retrograde_3D: https://data.mendeley.com/datasets/bjsw4m983g/1
+Halo_L1: https://data.mendeley.com/datasets/g47z49pk76/1
+Halo_L2: https://data.mendeley.com/datasets/sfdvcrndm5/1
+Lyapunov_L1: https://data.mendeley.com/datasets/vhcytfzd94/1
+Lyapunov_L2: https://data.mendeley.com/datasets/8r4dsrnzz6/1
 
