@@ -1,4 +1,4 @@
-Version 1.0.0
+Version 2.0.0
 
 Author: Marta Lopez Castro
 Copyright 2023 - 2025 David Canales Garcia; All Rights Reserved.
@@ -27,6 +27,7 @@ matlab codes
  orbitdatabase.m
  explosiondatabase.m
  debrisdatabase.m
+ othersatellitestudy.m
  -> 00 functions
 	--> data_management
 		createspecificorbitdatabase.m
@@ -40,6 +41,9 @@ matlab codes
 		NASA_BM_EVOLVE4.m
 	--> system_data
 		somedata.m
+	--> other_satellite
+		danger_othersat_plotting.m
+		IC_other_sat.m
 	--> results_analysis
 		classofdebris.m
 		---> plotting
@@ -48,10 +52,14 @@ matlab codes
 			ICplotting.m
 			twodplot.m
 			ICplottingfromorbitdatabase.m
+			density_map_plotting.m
+			trajectory_plotting.m
+			twodplot_moon_explosion.m
 			----> Auxiliary
 				circle.m	
 				DrawEarthCR3BPnondim.m
 				DrawMoonCR3BPnondim.m
+				ZVC_plot_xy.m
 				----->imagePlanets
 					2k_earth.JPG
 					2k_moon.jpg
@@ -69,7 +77,7 @@ matlab codes
 
 OTHER EXPLOSIONS DATASET:
 
-Explosions along different family orbits are also simulated and included in the following urls. The datasets structure is the same aforementioned. It is also included a single JSON file that contains all the explosions computed in that family.
+40 explosions along 5 orbits of each different family are also simulated and included in the following urls. The datasets structure is the same aforementioned. It is also included a single JSON file that contains all the explosions computed in that family.
 
 Axial_L1: https://data.mendeley.com/datasets/8mwb28h4g6/1
 Axial_L2: https://data.mendeley.com/datasets/4g28tkstj8/1

@@ -6,7 +6,8 @@
 % - folder: specify folder to store plot
 % - plotname: name of the family orbit
 % - JC0: Initial Jacobi constants [nondim]
-% - s0: initial state vectors (where the explosions occur) [nondim]
+% - s0: initial debris state vectors (where the explosions occur) [nondim]
+% - Store: initial orbits state vectors [nondim]
 % - orb_files_all: files containing specific orbits' IC [nondim]
 %
 %%%% OUTPUTS %%%%
@@ -14,39 +15,27 @@
 % - initial_conditions_plotname.png
 %
 %   Author: Marta Lopez Castro
-%   Version: June 04, 2024
+%   Version: July 25, 2024
 %
 % *********************************************************************
 % Copyright 2023 - 2025 David Canales Garcia; All Rights Reserved.
 % *********************************************************************
 
-function ICplotting(folder,plotname,JC0,s0,orb_files_all)
+function ICplotting(folder,plotname,JC0,s0,Store,orb_files_all)
 
 % Load constants
 load('somedata.mat','lcar','MU','rsoi_moon','r_moon');
 
-% Get data and load form .mat files
-JC = JC0;
-Store = {};
-for i = 1:length(orb_files_all)
-    load(orb_files_all{i},'JC_sp','Store_sp');
-    idx = ismember(string(JC_sp),string(JC0));
-    Store = vertcat(Store,Store_sp(idx));
-end
-
-%Store initial orbits in caller workspace
-assignin("caller",'s0_all',Store);
-
 % Figure
 figure   %('WindowState','maximized')
-cmap=parula(length(JC));
+cmap=parula(length(JC0));
 hold on;
 grid on;
 axis equal;
 hcb=colorbar;
 set(gca,'colororder',cmap,'colormap',cmap)
 set(gcf,'color','w')
-clim([min(JC)-0.001 max(JC)+0.001]);
+clim([min(JC0)-0.001 max(JC0)+0.001]);
 title(hcb,'JC')
 
 map = [flipud(cool)];
@@ -60,13 +49,14 @@ ylim padded
 colormap(map)
 
 % Plot orbits, color according to JC
-for ii = 1:length(Store)
-    Csurf = ones(length(Store{ii,1}(:,1)),1)*JC(ii);
+for ii = 1:length(JC0)
+    Csurf = ones(length(Store{ii,1}(:,1)),1)*JC0(ii);
     surf([Store{ii,1}(:,1) Store{ii,1}(:,1) Store{ii,1}(:,1)], [Store{ii,1}(:,2) Store{ii,1}(:,2) Store{ii,1}(:,2)],...
         [Store{ii,1}(:,3) Store{ii,1}(:,3) Store{ii,1}(:,3)], [Csurf Csurf Csurf],'EdgeColor','interp','Linewidth',1);
 end
 
 % Plot system objects
+title('Pre-Break Up Event')
 DrawMoonCR3BPnondim(MU, 1741/lcar, 1741/lcar) % Moon
 text(r_moon(1),r_moon(2),' Moon')
 

@@ -27,7 +27,7 @@
 % (optional) plots saved in \02 orbits\foldername
 %
 %   Author: Marta Lopez Castro
-%   Version: June 04, 2024
+%   Version: July 25, 2024
  
 % *********************************************************************
 % Copyright 2023 - 2025 David Canales Garcia; All Rights Reserved.
@@ -83,6 +83,7 @@ orb_files_all = {};
 for i = 1:length(exp_idx)
     % Select specific explosions
     expfiles = what(append(explosioncell{1,exp_idx(i)},'\explosions'));
+    parts = replace(erase(split(expfiles.mat,'_'),'.mat'),'-','.');
     sp_exp_idx{i} = listdlg("PromptString",{'Select explosions'},"ListString",erase(expfiles.mat,'.mat'));
     % Extract explosion data from file names
     orbit_family = string(parts(:,2));
@@ -123,7 +124,7 @@ for i = 1:length(exp_idx)
 
 end
 
-% In workspace onlt remains compiled explosion data
+% In workspace only remains compiled explosion data
 clearvars -except *_all 
 
 % Store debris data (optional)
@@ -159,12 +160,24 @@ s0exp_unique = unique(s0exp_all(:,1:3),'rows'); % state vectors of IC (remove re
 tmax = max(cellfun(@max,texp_all)); % max time of propagation
 plotname = replace(analysisname_all,' ','_'); % plot description
 
-ICplotting(folder,plotname,JC0,s0exp_unique,orb_files_all) % plot initial orbits and explosion points
+s0_all = {}; % Initial orbits state vector
+for i = 1:length(orb_files_all)
+    load(orb_files_all{i},'JC_sp','Store_sp');
+    idx = ismember(string(JC_sp),string(JC0));
+    s0_all = vertcat(s0_all,Store_sp(idx));
+    clear JC_sp Store_sp
+end
+
+ICplotting(folder,plotname,JC0,s0exp_unique,s0_all,orb_files_all) % plot initial orbits and explosion points
 
 twodplot(folder,plotname,texp_all,s0_all,sexp_all,orbit_debris_all,out_of_system_all,impact_moon_all,impact_earth_all) % plot snapshots of debris
+twodplot_moon_explosion(folder,plotname,texp_all,s0_all,sexp_all,orbit_debris_all,out_of_system_all,impact_moon_all,impact_earth_all) % plot snapshots of debris (zoom on moon SoI)
 
 evolutiondebrisplotting(folder,plotname,out_of_system_all,impact_earth_all,impact_moon_all,texp_all) % plot evolution of debris based on type
 danger_Lpoints_plotting(folder,plotname,sexp_all,t0exp_all,tmax) % plot danger zones for L1 and L2
+
+trajectory_plotting(folder,plotname,texp_all,s0_all,sexp_all,JC_all,orbit_debris_all,out_of_system_all,impact_moon_all,impact_earth_all) % plot short term trajectories divided by JC
+density_map_plotting(folder,plotname,sexp_all) % plot debris accumulation over time
 
 % plots of comparison for different families
 
